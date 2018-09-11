@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :usuarios
 
   get 'login' => 'usuarios#login', as: 'login'
+  get 'callback' => 'usuarios#callback', as: 'callback'
 
   #root 'usuarios#login'
 
