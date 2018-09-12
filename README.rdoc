@@ -1,28 +1,24 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Esse projeto está usando Ruby 2.2.2.
 
-Things you may want to cover:
+Nota para Ubuntu 18.04:
 
-* Ruby version
+Dado que você tem instalado o rbenv no seu ambiente, ainda é
+necessário instalar:
 
-* System dependencies
+    sudo apt-get install sqlite3 libsqlite3-dev libssl1.0-dev
 
-* Configuration
+Depois, dentro da pasta do projeto rode:
 
-* Database creation
+    bundle install
+    bundle exec rake db:migrate
 
-* Database initialization
+Subir server local:
 
-* How to run the test suite
+    bundle exec rails s -p 8080
 
-* Services (job queues, cache servers, search engines, etc.)
+Rota para teste:
 
-* Deployment instructions
+    http://localhost:8080/login
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
