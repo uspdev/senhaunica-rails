@@ -1,0 +1,8 @@
+development:
+  ICB_OAUTH: "icb_oauth"
+  SECRET_OAUTH: "zzzz"
+  CALLBACK_ID: "&callback_id=1"
+production:
+  ICB_OAUTH: "icb_oauth"
+  SECRET_OAUTH: "zzzz"
+  CALLBACK_ID: "&callback_id=1"

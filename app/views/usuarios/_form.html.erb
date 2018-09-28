@@ -1,21 +1,57 @@
 <%= form_for(@usuario) do |f| %>
-  <% if @usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+    <% if @usuario.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
 
-      <ul>
-      <% @usuario.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @usuario.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :loginUsuario, "Login" %><br>
+      <%= f.text_field :loginUsuario %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :nomeUsuario, "Nome" %><br>
+      <%= f.text_field :nomeUsuario %>
+    </div>
+
+    <div class="field">
+      <%= f.label :tipoUsuario, "Tipo do usuario" %><br>
+      <%= f.text_field :tipoUsuario %>
+    </div>
+
+    <div class="field">
+      <%= f.label :emailPrincipalUsuario, "E-mail principal do usuario" %><br>
+      <%= f.text_field :emailPrincipalUsuario %>
+    </div>
+
+    <div class="field">
+      <%= f.label :emailAlternativoUsuario, "E-mail alternativo do usuario" %><br>
+      <%= f.text_field :emailAlternativoUsuario %>
+    </div>
+
+    <div class="field">
+      <%= f.label :emailUspUsuario, "E-mail USP" %><br>
+      <%= f.text_field :emailUspUsuario %>
+    </div>
+
+    <div class="field">
+      <%= f.label :numeroTelefoneFormatado, "Telefone" %><br>
+      <%= f.text_field :numeroTelefoneFormatado %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ramalUsp, "Ramal" %><br>
+      <%= f.text_field :ramalUsp %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Salvar" %>
+    </div>
 <% end %>

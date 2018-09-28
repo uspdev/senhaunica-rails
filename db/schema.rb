@@ -11,12 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180831191059) do
+ActiveRecord::Schema.define(version: 20180913180204) do
+
+  create_table "tipo_vinculos", force: :cascade do |t|
+    t.string   "tipoVinculo"
+    t.string   "codigoSetor"
+    t.string   "nomeAbreviadSetor"
+    t.string   "nomeSetor"
+    t.string   "codigoUnidade"
+    t.string   "siglaUnidade"
+    t.string   "nomeUnidade"
+    t.string   "nomeVinculo"
+    t.string   "nomeAbreviadoFuncao"
+    t.integer  "usuario_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "tipo_vinculos", ["usuario_id"], name: "index_tipo_vinculos_on_usuario_id"
 
   create_table "usuarios", force: :cascade do |t|
-    t.string   "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "nomeUsuario"
+    t.string   "loginUsuario"
+    t.string   "tipoUsuario"
+    t.string   "emailPrincipalUsuario"
+    t.string   "emailAlternativoUsuario"
+    t.string   "emailUspUsuario"
+    t.string   "numeroTelefoneFormatado"
+    t.string   "ramalUsp"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end
