@@ -1,29 +1,77 @@
-<p id="notice"><%= notice %></p>
+<h1>Lista de Usuários</h1>
 
-<h1>Listing Usuarios</h1>
+<% @usuarios.each do |usuario| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Login</th>
+                <th>Nome </th>
+                <th>Tipo </th>
+                <th>E-mail Principal</th>
+                <th>E-mail Alternativo</th>
+                <th>E-mail USP</th>
+                <th>Telefone</th>
+                <th>Ramal</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
 
-  <tbody>
-    <% @usuarios.each do |usuario| %>
-      <tr>
-        <td><%= usuario.nome %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+        <tr>
+            <td><%= usuario.loginUsuario %></td>
+            <td><%= usuario.nomeUsuario %></td>
+            <td><%= usuario.tipoUsuario %></td>
+            <td><%= usuario.emailPrincipalUsuario %></td>
+            <td><%= usuario.emailAlternativoUsuario %></td>
+            <td><%= usuario.emailUspUsuario %></td>
+            <td><%= usuario.numeroTelefoneFormatado %></td>
+            <td><%= usuario.ramalUsp %></td>
+            <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+            <td><%= link_to 'Apagar', usuario, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Vinculo</th>
+                <th>Nome do vinculo</th>
+                <th>Sigla da unidade</th>
+                <th>Nome da unidade</th>
+                <th>Codigo do setor</th>
+                <th>Nome do setor</th>
+                <th>Nome da função</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @tipovinculo = TipoVinculo.where(usuario_id: usuario.id) %>
+
+            <% @tipovinculo.each do |v| %>
+
+                <tr>
+                    <td><%= v.tipoVinculo %></td>
+                    <td><%= v.nomeVinculo %></td>
+                    <td><%= v.siglaUnidade %></td>
+                    <td><%= v.nomeUnidade %></td>
+                    <td><%= v.codigoSetor %></td>
+                    <td><%= v.nomeSetor %></td>
+                    <td><%= v.nomeAbreviadoFuncao %></td>
+                </tr>
+            <% end %>
+
+        </tbody>
+    </table>
+
+    <br>
+
+<% end %>
 
 <br>
 
 
 
-<%= link_to 'New Usuario', new_usuario_path %>
+
+

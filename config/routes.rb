@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+
   resources :usuarios
 
-  get 'login' => 'usuarios#login', as: 'login'
-  get 'callback' => 'usuarios#callback', as: 'callback'
+  get 'login' => 'session#login', as: 'login'
+  get 'callback' => 'session#callback', as: 'callback'
+  get 'logout' => 'session#destroy', as: 'logout'
+
+  root 'session#login'
 
   #root 'usuarios#login'
 
